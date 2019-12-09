@@ -1,0 +1,17 @@
+Web:
+https://pdfbox.apache.org/
+
+Code:
+https://github.com/apache/pdfbox
+
+Examples:
+https://github.com/apache/pdfbox/tree/trunk/examples/src/main/java/org/apache/pdfbox/examples
+
+Extract metadata:
+https://github.com/apache/pdfbox/blob/trunk/examples/src/main/java/org/apache/pdfbox/examples/pdmodel/ExtractMetadata.java
+
+CLI:
+https://github.com/apache/pdfbox/tree/trunk/tools/src/main/java/org/apache/pdfbox/tools
+
+Extract text:
+https://github.com/apache/pdfbox/blob/trunk/tools/src/main/java/org/apache/pdfbox/tools/ExtractText.java

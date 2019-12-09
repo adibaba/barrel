@@ -1,0 +1,32 @@
+Apache Tika uses Apache PDFBox
+
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.tika/tika-parsers -->
+<dependency>
+    <groupId>org.apache.tika</groupId>
+    <artifactId>tika-parsers</artifactId>
+    <version>1.22</version>
+</dependency>
+
+
+
+	public static void printApacheTika(File pdfFile) throws Exception {
+
+		// StringWriter: Avoid "To receive the full text of the document, increase your
+		// limit."
+		BodyContentHandler handler = new BodyContentHandler(new StringWriter());
+		Metadata metadata = new Metadata();
+		InputStream inputstream = new FileInputStream(pdfFile);
+		ParseContext parseContext = new ParseContext();
+
+		Parser pdfparser = new PDFParser();
+		pdfparser.parse(inputstream, handler, metadata, parseContext);
+
+		System.out.println("Handler:" + handler.toString());
+		System.out.println(handler.toString().length());
+
+		for (String name : metadata.names()) {
+			System.out.println(name + ": " + metadata.get(name));
+		}
+	}
