@@ -71,10 +71,6 @@ public class Main {
 			System.exit(Configuration.CODE_USER_INPUT);
 		}
 
-//		new Main().indexFiles(index, ignoreExisting);
-//
-//		new Main().search(index, query);
-
 	}
 
 	protected Index getIndexOrExit(String indexId) {

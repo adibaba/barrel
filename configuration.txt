@@ -1,0 +1,12 @@
+# Elasticsearch
+elasticsearch.scheme = http
+elasticsearch.hostname = localhost
+elasticsearch.port = 9200
+
+# Split indexes by commas
+indexes = default
+
+# Default index (can be removed)
+index.default.id = barrel
+index.default.directory = ./
+index.default.web = 
