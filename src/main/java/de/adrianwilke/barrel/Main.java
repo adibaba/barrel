@@ -191,7 +191,9 @@ public class Main {
 			} else {
 				outFile.getParentFile().mkdirs();
 				try {
-					Filesystem.writeFile(new PdfBox().setFile(pdfFile).getText(), outFile);
+					try (PdfBox pdfBox = new PdfBox()) {
+						Filesystem.writeFile(pdfBox.setFile(pdfFile).getText(), outFile);
+					}
 				} catch (Exception e) {
 					LOGGER.error("Could not extract " + pdfFile.getAbsolutePath(), e);
 				}
