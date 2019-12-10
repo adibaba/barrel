@@ -24,7 +24,7 @@ import de.adrianwilke.barrel.pdf.PdfBox;
  */
 public class Main {
 
-	protected static final Logger LOGGER = LogManager.getLogger();
+	protected static final Logger LOGGER = LogManager.getLogger(Main.class);
 
 	public static final String MODE_LIST = "list";
 	public static final String MODE_INDEX = "index";
@@ -85,10 +85,17 @@ public class Main {
 	protected void printInfo() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(System.lineSeparator());
+		
 		stringBuilder.append("Configuration file:");
 		stringBuilder.append(System.lineSeparator());
 		stringBuilder.append("  " + Configuration.PROPERTIES_FILE.getAbsolutePath());
 		stringBuilder.append(System.lineSeparator());
+		
+		stringBuilder.append("Indexes:");
+		stringBuilder.append(System.lineSeparator());
+		stringBuilder.append("  " + configuration.indexes.keySet().toString());
+		stringBuilder.append(System.lineSeparator());
+		
 		stringBuilder.append("Usage:");
 		stringBuilder.append(System.lineSeparator());
 		stringBuilder.append("  " + MODE_LIST + "   <" + PARAMETER_INDEX_ID + ">");
@@ -134,7 +141,7 @@ public class Main {
 			stringBuilder.append("<br/>");
 			System.out.println();
 		}
-		File resultsFile = new File(Configuration.getTempDirectory(), "search.htm");
+		File resultsFile = new File("search.htm");
 		Filesystem.writeFile(stringBuilder.toString(), resultsFile);
 		LOGGER.info(searchResponse.getHits().getTotalHits().value);
 		LOGGER.info(resultsFile.getAbsolutePath());

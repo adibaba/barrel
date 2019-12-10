@@ -26,7 +26,7 @@ import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
  */
 public class Elasticsearch {
 
-	protected static final Logger LOGGER = LogManager.getLogger();
+	protected static final Logger LOGGER = LogManager.getLogger(Elasticsearch.class);
 
 	protected static void write(HttpHost httpHost, String index, String id, String text) throws IOException {
 		try (RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(httpHost))) {

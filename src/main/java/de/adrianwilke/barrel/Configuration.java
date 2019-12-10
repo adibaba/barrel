@@ -43,7 +43,7 @@ public class Configuration {
 	public static final String SUFFIX_PORT = "port";
 	public static final String SUFFIX_SCHEME = "scheme";
 
-	protected static final Logger LOGGER = LogManager.getLogger();
+	protected static final Logger LOGGER = LogManager.getLogger(Configuration.class);
 
 	protected Properties properties;
 
