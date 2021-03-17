@@ -1,5 +1,5 @@
 configuration.txt
-
+search-results.htm
 
 
 
@@ -104,3 +104,4 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+/bin/

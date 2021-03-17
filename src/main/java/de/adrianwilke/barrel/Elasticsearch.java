@@ -44,11 +44,15 @@ public class Elasticsearch {
 	protected static SearchResponse search(HttpHost httpHost, String index, String text) throws IOException {
 		try (RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(httpHost))) {
 
-			QueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("text", text).fuzziness(Fuzziness.AUTO)
-					.prefixLength(3).maxExpansions(10);
+			QueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("text", text).fuzziness(Fuzziness.ONE)
+					.prefixLength(1);
 
 			HighlightBuilder highlightBuilder = new HighlightBuilder();
 			HighlightBuilder.Field highlightField = new HighlightBuilder.Field("text");
+			highlightField.highlighterType("plain");
+			highlightField.fragmentSize(100);
+			highlightField.preTags("<b>");
+			highlightField.postTags("</b>");
 			highlightBuilder.field(highlightField);
 
 			SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
